@@ -1,6 +1,7 @@
 ---
 import background from "../assets/background.svg";
 import Countdown from "../sections/Countdown.astro";
+import logo from "../assets/logoSO.png";
 ---
 
 <div id="container" class="py-30">
@@ -11,7 +12,8 @@ import Countdown from "../sections/Countdown.astro";
     <!-- LOGO -->
 
     <img
-      src="/public/logoSO.png"
+      id="logo"
+      src={logo.src}
       width={"200px"}
       height={"200px"}
       class="py-20"
