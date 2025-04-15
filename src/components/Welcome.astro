@@ -1,6 +1,7 @@
 ---
 import background from "../assets/background.svg";
 import Countdown from "../sections/Countdown.astro";
+import Formulario from "../components/Formulario.astro";
 import logo from "../assets/logoSO.png";
 ---
 
@@ -11,18 +12,19 @@ import logo from "../assets/logoSO.png";
     <p>Organizado por The Style Outlet Viladecans</p>
     <!-- LOGO -->
 
-    <img
+    <!-- <img
       id="logo"
       src={logo.src}
       width={"200px"}
       height={"200px"}
       class="py-20"
-    />
+    /> -->
 
     <!-- CONTADOR -->
     <Countdown timestamp={1748343600000} />
     <!-- SPONSORS -->
     <!-- TEAMS -->
+    <Formulario />
     <!-- DEPORTES -->
     <!-- UBICACION -->
   </main>
@@ -54,7 +56,7 @@ import logo from "../assets/logoSO.png";
 
   main {
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     justify-content: center;
   }
