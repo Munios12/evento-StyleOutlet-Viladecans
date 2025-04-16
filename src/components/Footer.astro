@@ -1,23 +1,49 @@
-<footer class="relative min-h-[800px] w-full pb-32 2xl:mt-0 2xl:pb-96">
-  <div
-    class="absolute inset-0 bg-[url('../assets/imagenFooter.jpg')] footer-background bg-bottom"
-  >
-  </div>
+<footer class="footer">
+  <div class="footer-background"></div>
 
-  <div
+  <!-- <div
+    Footer -> relative min-h-[800px] w-full pb-32 2xl:mt-0 2xl:pb-96
+    Bg img -> absolute inset-0 bg-[url('../assets/imagenFooter.jpg')] footer-background bg-bottom
     class="relative flex h-full flex-col items-center justify-center text-[#2a1f26]"
   >
-    <!-- <div class="footer-content">
+    <div class="footer-content">
       <footer>@2025 con ♥️ por Alejandro Muñoz</footer>
-    </div> -->
-  </div>
+    </div>
+  </div> -->
 </footer>
 
 <style>
+  .footer {
+    position: relative;
+    min-height: 700px;
+    width: 100%;
+  }
   .footer-background {
+    position: absolute;
+    inset: 0;
+    background-image: url("../assets/imagenFooter.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    mask-image: linear-gradient(to bottom, transparent 20%, black 50%);
-    background-position: center 120px; /* Mueve la imagen hacia abajo */
+    mask-image: linear-gradient(to bottom, transparent 10%, black 50%);
+    background-position: center 20px; /*Mueve la imagen hacia abajo */
+    /* background-position: bottom; */
+  }
+
+  @media (max-width: 768px) {
+    .footer-background {
+      mask-image: linear-gradient(to bottom, transparent 30%, black 50%);
+      background-position-x: left;
+      background-position-y: 220px;
+    }
+  }
+
+  @media (min-width: 2500px) {
+    .footer {
+      min-height: 1100px;
+    }
+
+    .footer-background {
+      background-position: center -50px;
+    }
   }
 </style>
