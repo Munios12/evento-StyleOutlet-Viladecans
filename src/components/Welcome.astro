@@ -8,17 +8,9 @@ import logo from "../assets/logoSO.png";
 <div id="container" class="pt-20">
   <!-- <img id="background" src={background.src} alt="" fetchpriority="high" /> -->
   <main class="flex justify-center items-center flex-col">
-    <h1 class="text-center">BIENVENIDO/A AL EVENTO DEPORTIVO DEL AÑO</h1>
+    <h1 class="text-center">BIENVENIDO/A<br />A LA JORNADA DEPORTIVA</h1>
     <p>Organizado por The Style Outlet Viladecans</p>
     <!-- LOGO -->
-
-    <!-- <img
-      id="logo"
-      src={logo.src}
-      width={"200px"}
-      height={"200px"}
-      class="py-20"
-    /> -->
 
     <!-- CONTADOR -->
     <Countdown timestamp={1751193000000} />
@@ -31,6 +23,20 @@ import logo from "../assets/logoSO.png";
 </div>
 
 <style>
+  @font-face {
+    font-family: "Chalet";
+    src: url("../assets/fonts/ChaletNY.otf") format("opentype");
+    font-weight: bolder;
+    font-style: normal;
+  }
+
+  h1 {
+    font-family: "Chalet", sans-serif;
+    font-size: 2.8rem;
+  }
+  main p {
+    font-family: "Chalet", sans-serif;
+  }
   #background {
     position: fixed;
     top: 0;
@@ -102,11 +108,6 @@ import logo from "../assets/logoSO.png";
     flex-direction: column;
     justify-content: center;
     padding: 16px;
-  }
-
-  h1 {
-    font-size: 2rem;
-    margin-top: 0.25em;
   }
 
   #links {
@@ -203,6 +204,7 @@ import logo from "../assets/logoSO.png";
   }
 
   @media screen and (max-width: 768px) {
+    /* Para mobil    */
     #container {
       display: flex;
       flex-direction: column;
