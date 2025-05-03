@@ -14,3 +14,12 @@
   --color-theme-seashell: oklch(95.25% 0.0147 33.07);
   --color-theme-turquoise: oklch(82.97% 0.148864 181.7442);
 }
+
+@font-face {
+  font-family: "Anton";
+  src: url("../assets/fonts/Anton-Regular") format("ttf");
+}
+@font-face {
+  font-family: "AntonSC";
+  src: url("../assets/fonts/AntonSC-Regular") format("ttf");
+}

@@ -4,7 +4,9 @@
 
 <div class="contenedor_formulario">
   <div class="contendor_ubi">
-    <h3 id="text" class="">¿Dónde nos encontraremos?</h3>
+    <h3 id="text" class="title_map">
+      ¿Dónde nos <span> &nbsp; encontraremos?</span>
+    </h3>
     <div class="contenedor_iframe">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1612.517260069042!2d2.012854267844322!3d41.31388614412632!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49cef447ae683%3A0x4b3229801ad8cb14!2sPavell%C3%B3%20Municipal%20Atrium%20Viladecans!5e1!3m2!1sca!2ses!4v1744738672629!5m2!1sca!2ses"
@@ -30,6 +32,31 @@
 </div>
 
 <style>
+  .title_map {
+    position: relative;
+    font-family: "AntonSC", sans-serif;
+    font-size: 3rem;
+    font-weight: bolder;
+    letter-spacing: -3px;
+    color: oklch(25.53% 0.0209 340.25);
+  }
+  .title_map span {
+    color: white;
+  }
+
+  .title_map::before {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 10px;
+    left: 265px;
+    background-color: oklch(25.53% 0.0209 340.25);
+    height: 50px;
+    width: 60%;
+    z-index: -1;
+    transform: skew(-10deg);
+  }
+
   .contenedor_formulario {
     padding: 30px;
     width: 100%;
@@ -59,6 +86,23 @@
 
   /* Responsive ajustes para pantallas pequeñas */
   @media (max-width: 768px) {
+    .title_map {
+      font-size: 1.4rem;
+      letter-spacing: -1px;
+      color: oklch(25.53% 0.0209 340.25);
+    }
+    .title_map::before {
+      position: absolute;
+      content: "";
+      display: block;
+      top: 0px;
+      left: 125px;
+      background-color: oklch(25.53% 0.0209 340.25);
+      height: 50px;
+      width: 60%;
+      z-index: -1;
+      transform: skew(-10deg);
+    }
     .contenedor_formulario {
       display: flex;
       align-items: center;

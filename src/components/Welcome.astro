@@ -184,9 +184,11 @@ import Formulario from "../components/Formulario.astro";
     line-height: 0.8;
     margin-bottom: 0.3em;
     letter-spacing: -5px;
+    color: oklch(25.53% 0.0209 340.25);
   }
 
   main p {
+    color: #673ab7;
     font-family: "Chalet", sans-serif;
   }
 
@@ -356,7 +358,7 @@ import Formulario from "../components/Formulario.astro";
       margin: 20px 0px 150px 0px;
     }
     h1 {
-      font-size: 7rem;
+      font-size: 8rem;
     }
     main {
       margin-top: 100px;
@@ -369,6 +371,21 @@ import Formulario from "../components/Formulario.astro";
 
   @media screen and (max-width: 768px) {
     /* Para mobil    */
+
+    h1 {
+      font-family: "AntonSC", sans-serif;
+      font-weight: bolder;
+      font-size: 3.3rem;
+      line-height: 0.9;
+      margin-bottom: 0.8em;
+      letter-spacing: -5px;
+      color: oklch(25.53% 0.0209 340.25);
+      margin: 0px 20px;
+    }
+    main p {
+      margin: 30px 0px 40px 0px;
+      font-size: 0.8rem;
+    }
 
     .arrow_container {
       display: none;
@@ -383,23 +400,11 @@ import Formulario from "../components/Formulario.astro";
       padding-top: 10%;
     }
 
-    #links {
-      flex-wrap: wrap;
-    }
-
-    #links a.button {
-      padding: 14px 18px;
-    }
-
     #news {
       right: 16px;
       left: 16px;
       bottom: 2.5rem;
       max-width: 100%;
-    }
-
-    h1 {
-      line-height: 1.5;
     }
   }
 </style>
