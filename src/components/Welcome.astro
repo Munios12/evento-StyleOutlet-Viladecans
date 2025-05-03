@@ -11,7 +11,9 @@ import Formulario from "../components/Formulario.astro";
       BIENVENIDX<br />A LA JORNADA<br />DEPORTIVA
     </h1>
 
-    <p class="pepero">Organizado por The Style Outlet Viladecans</p>
+    <p class="pepero" id="subTitle">
+      Organizado por The Style Outlet Viladecans
+    </p>
     <!-- ARROW -->
     <div class="arrow_container">
       <a href="#toscroll">
@@ -37,12 +39,14 @@ import Formulario from "../components/Formulario.astro";
   import { gsap } from "gsap";
   import { SplitText } from "gsap/SplitText";
 
-  console.log("using GSAP: ", gsap.version);
+  let tl = gsap.timeline();
 
+  //PLUGINS
   gsap.registerPlugin(SplitText);
 
+  ////SPLIT TEXT H1////
   let text = document.querySelector("#text");
-  let split = SplitText.create(text, { type: "chars,words,lines" });
+  let split = SplitText.create(text, { type: "chars, words, lines" });
 
   gsap.from(split.words, {
     y: -200,
@@ -52,6 +56,22 @@ import Formulario from "../components/Formulario.astro";
     ease: "back",
     stagger: 0.1,
   });
+
+  /////////////////
+  let subTitle = document.querySelector("#subTitle");
+  let splitSubTitle = SplitText.create(subTitle, { type: "chars" });
+
+  gsap.from(splitSubTitle.chars, {
+    x: 150,
+    opacity: 0,
+    duration: 1,
+    ease: "power4",
+    stagger: 0.02,
+  });
+
+  tl.to("#green", { duration: 1, x: 10 })
+    .to("#blue", { duration: 2, x: 786 })
+    .to("#orange", { duration: 1, x: 786 });
 </script>
 
 <style>
