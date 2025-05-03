@@ -8,7 +8,7 @@ import logo from "../assets/logoSO.png";
 <div id="container" class="pt-20">
   <!-- <img id="background" src={background.src} alt="" fetchpriority="high" /> -->
   <main class="flex justify-center items-center flex-col">
-    <h1 class="text-center">BIENVENIDO/A<br />A LA JORNADA DEPORTIVA</h1>
+    <h1 class="text-center">BIENVENIDO/A<br />A LA JORNADA<br />DEPORTIVA</h1>
 
     <p>Organizado por The Style Outlet Viladecans</p>
     <!-- ARROW -->
@@ -126,12 +126,22 @@ import logo from "../assets/logoSO.png";
     font-style: normal;
   }
 
+  @font-face {
+    font-family: "Anton";
+    src: url("../assets/fonts/Anton-Regular") format("ttf");
+  }
+  @font-face {
+    font-family: "AntonSC";
+    src: url("../assets/fonts/AntonSC-Regular") format("ttf");
+  }
+
   h1 {
-    font-family: "Chalet", sans-serif;
+    font-family: "AntonSC", sans-serif;
+    font-weight: bolder;
     font-size: 3rem;
-    line-height: 1.2;
+    line-height: 0.8;
     margin-bottom: 0.3em;
-    text-shadow: 0 0 3px black;
+    letter-spacing: -5px;
   }
 
   main p {
@@ -301,16 +311,16 @@ import logo from "../assets/logoSO.png";
   /*----------------*/
   @media (min-width: 768px) {
     .arrow_container {
-      margin: 100px 0px;
+      margin: 20px 0px 150px 0px;
     }
     h1 {
-      font-size: 5rem;
+      font-size: 7rem;
     }
     main {
       margin-top: 100px;
     }
     main p {
-      font-size: 2rem;
+      font-size: 1.4rem;
       margin-bottom: 30px;
     }
   }
