@@ -9,11 +9,21 @@ import logo from "../assets/logoSO.png";
   <!-- <img id="background" src={background.src} alt="" fetchpriority="high" /> -->
   <main class="flex justify-center items-center flex-col">
     <h1 class="text-center">BIENVENIDO/A<br />A LA JORNADA DEPORTIVA</h1>
-    <p>Organizado por The Style Outlet Viladecans</p>
-    <!-- LOGO -->
 
+    <p>Organizado por The Style Outlet Viladecans</p>
+    <!-- ARROW -->
+    <div class="arrow_container">
+      <a href="#toscroll">
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <span class="text">Scroll down</span>
+      </a>
+    </div>
     <!-- CONTADOR -->
-    <Countdown timestamp={1751193000000} />
+    <div id="toscroll">
+      <Countdown timestamp={1751193000000} />
+    </div>
     <!-- SPONSORS -->
     <!-- TEAMS -->
     <Formulario />
@@ -23,6 +33,92 @@ import logo from "../assets/logoSO.png";
 </div>
 
 <style>
+  /* -----------ARROW--------------- */
+
+  .arrow_container {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin: 0px auto;
+  }
+  .chevron {
+    position: absolute;
+    width: 28px;
+    height: 8px;
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5);
+    animation: move 3s ease-out infinite;
+  }
+
+  .chevron:before,
+  .chevron:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 51%;
+    background: #000000;
+  }
+
+  .chevron:before {
+    left: 0;
+    transform: skew(0deg, 30deg);
+  }
+
+  .chevron:after {
+    right: 0;
+    width: 50%;
+    transform: skew(0deg, -30deg);
+  }
+
+  .chevron:first-child {
+    animation: move 3s ease-out 1s infinite;
+  }
+
+  .chevron:nth-child(2) {
+    animation: move 3s ease-out 2s infinite;
+  }
+
+  .text {
+    display: block;
+    margin-top: 75px;
+    margin-left: -30px;
+    font-family: "Chalet", sans-serif;
+    font-size: 12px;
+    color: #050505;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0.25;
+    animation: pulse 2s linear alternate infinite;
+  }
+
+  @keyframes pulse {
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes move {
+    25% {
+      opacity: 1;
+    }
+    33% {
+      opacity: 1;
+      transform: translateY(30px);
+    }
+    67% {
+      opacity: 1;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   @font-face {
     font-family: "Chalet";
     src: url("../assets/fonts/ChaletNY.otf") format("opentype");
@@ -32,11 +128,16 @@ import logo from "../assets/logoSO.png";
 
   h1 {
     font-family: "Chalet", sans-serif;
-    font-size: 2.8rem;
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 0.3em;
+    text-shadow: 0 0 3px black;
   }
+
   main p {
     font-family: "Chalet", sans-serif;
   }
+
   #background {
     position: fixed;
     top: 0;
@@ -197,14 +298,29 @@ import logo from "../assets/logoSO.png";
     background: rgba(255, 255, 255, 0.55);
   }
 
-  @media screen and (max-height: 368px) {
-    #news {
-      display: none;
+  /*----------------*/
+  @media (min-width: 768px) {
+    .arrow_container {
+      margin: 100px 0px;
+    }
+    h1 {
+      font-size: 5rem;
+    }
+    main {
+      margin-top: 100px;
+    }
+    main p {
+      font-size: 2rem;
+      margin-bottom: 30px;
     }
   }
 
   @media screen and (max-width: 768px) {
     /* Para mobil    */
+
+    .arrow_container {
+      display: none;
+    }
     #container {
       display: flex;
       flex-direction: column;
