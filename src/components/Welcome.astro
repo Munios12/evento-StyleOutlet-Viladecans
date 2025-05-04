@@ -1,45 +1,33 @@
 ---
-import background from "../assets/background.svg";
 import Countdown from "../sections/Countdown.astro";
 import Formulario from "../components/Formulario.astro";
+import ArrowScroll from "./ArrowScroll.astro";
 ---
 
-<div id="container" class="pt-20">
-  <!-- <img id="background" src={background.src} alt="" fetchpriority="high" /> -->
+<div id="container" class="pt-10">
   <main class="flex justify-center items-center flex-col">
-    <h1 class="text-center" id="text">
+    <h1 class="text-center title" id="text">
       BIENVENIDX<br />A LA JORNADA<br />DEPORTIVA
     </h1>
 
-    <p class="pepero" id="subTitle">
+    <p class="subTitle" id="subTitle">
       Organizado por The Style Outlet Viladecans
     </p>
     <!-- ARROW -->
-    <div class="arrow_container">
-      <a href="#toscroll">
-        <div class="chevron"></div>
-        <div class="chevron"></div>
-        <div class="chevron"></div>
-        <span class="text">Inscribete</span>
-      </a>
-    </div>
+    <ArrowScroll />
     <!-- CONTADOR -->
     <div id="toscroll">
       <Countdown timestamp={1751193000000} />
     </div>
-    <!-- SPONSORS -->
-    <!-- TEAMS -->
+    <!-- FORMS + UBI-->
     <Formulario />
     <!-- DEPORTES -->
-    <!-- UBICACION -->
   </main>
 </div>
 
 <script>
   import { gsap } from "gsap";
   import { SplitText } from "gsap/SplitText";
-
-  let tl = gsap.timeline();
 
   //PLUGINS
   gsap.registerPlugin(SplitText);
@@ -68,95 +56,9 @@ import Formulario from "../components/Formulario.astro";
     ease: "power4",
     stagger: 0.02,
   });
-
-  tl.to("#green", { duration: 1, x: 10 })
-    .to("#blue", { duration: 2, x: 786 })
-    .to("#orange", { duration: 1, x: 786 });
 </script>
 
 <style>
-  /* -----------ARROW--------------- */
-
-  .arrow_container {
-    position: relative;
-    width: 24px;
-    height: 24px;
-    margin: 0px auto;
-  }
-  .chevron {
-    position: absolute;
-    width: 28px;
-    height: 8px;
-    opacity: 0;
-    transform: scale3d(0.5, 0.5, 0.5);
-    animation: move 3s ease-out infinite;
-  }
-
-  .chevron:before,
-  .chevron:after {
-    content: " ";
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 51%;
-    background: #000000;
-  }
-
-  .chevron:before {
-    left: 0;
-    transform: skew(0deg, 30deg);
-  }
-
-  .chevron:after {
-    right: 0;
-    width: 50%;
-    transform: skew(0deg, -30deg);
-  }
-
-  .chevron:first-child {
-    animation: move 3s ease-out 1s infinite;
-  }
-
-  .chevron:nth-child(2) {
-    animation: move 3s ease-out 2s infinite;
-  }
-
-  .text {
-    display: block;
-    margin-top: 75px;
-    margin-left: calc(50% - 38px);
-    font-family: "Chalet", sans-serif;
-    font-size: 0.9rem;
-    color: #050505;
-    text-transform: uppercase;
-    white-space: nowrap;
-    opacity: 0.25;
-    animation: pulse 2s linear alternate infinite;
-  }
-
-  @keyframes pulse {
-    to {
-      opacity: 1;
-    }
-  }
-  @keyframes move {
-    25% {
-      opacity: 1;
-    }
-    33% {
-      opacity: 1;
-      transform: translateY(30px);
-    }
-    67% {
-      opacity: 1;
-      transform: translateY(40px);
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
-    }
-  }
-
   html {
     scroll-behavior: smooth;
   }
@@ -177,7 +79,7 @@ import Formulario from "../components/Formulario.astro";
     src: url("../assets/fonts/AntonSC-Regular") format("ttf");
   }
 
-  h1 {
+  .title {
     font-family: "AntonSC", sans-serif;
     font-weight: bolder;
     font-size: 3rem;
@@ -186,13 +88,7 @@ import Formulario from "../components/Formulario.astro";
     letter-spacing: -5px;
     color: oklch(25.53% 0.0209 340.25);
   }
-
-  main p {
-    color: #673ab7;
-    font-family: "Chalet", sans-serif;
-  }
-
-  #background {
+  /* #background {
     position: fixed;
     top: 0;
     left: 0;
@@ -200,21 +96,14 @@ import Formulario from "../components/Formulario.astro";
     height: 100vp;
     z-index: -1;
     filter: blur(100px);
+  } */
+  .subTitle {
+    color: #673ab7;
+    font-family: "Chalet", sans-serif;
   }
 
   #container {
-    font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
-      Arial, sans-serif;
-
-    /* background: linear-gradient(
-      180deg,
-      rgb(243, 239, 192) 12%,
-      rgba(248, 250, 212, 0.936) 32%,
-      rgba(245, 247, 210, 0.853) 65%,
-      rgba(236, 255, 255, 0.134) 100%
-    ); */
-
-    background-color: hsla(0, 22%, 99%, 1);
+    /* background-color: hsla(0, 22%, 99%, 1); */
     background-image: radial-gradient(
         at 0% 54%,
         hsla(209, 100%, 57%, 0.59) 0px,
@@ -247,88 +136,14 @@ import Formulario from "../components/Formulario.astro";
         transparent 50%
       ),
       radial-gradient(at 0% 98%, hsla(40, 100%, 57%, 0.58) 0px, transparent 50%);
-
     mask-image: linear-gradient(to top, transparent 1%, black 10%);
   }
 
   main {
     width: 100%;
+    padding-top: 100px;
     display: flex;
     justify-content: center;
-  }
-
-  #hero {
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    justify-content: center;
-    padding: 16px;
-  }
-
-  #links {
-    display: flex;
-    gap: 16px;
-  }
-
-  #links a {
-    display: flex;
-    align-items: center;
-    padding: 10px 12px;
-    color: #111827;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  #links a:hover {
-    color: rgb(78, 80, 86);
-  }
-
-  #links a svg {
-    height: 1em;
-    margin-left: 8px;
-  }
-
-  #links a.button {
-    color: white;
-    background: linear-gradient(83.21deg, #3245ff 0%, #eeca52 100%);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-      inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-    border-radius: 10px;
-  }
-
-  #links a.button:hover {
-    color: rgb(230, 230, 230);
-    box-shadow: none;
-  }
-
-  pre {
-    font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
-      Consolas, "DejaVu Sans Mono", monospace;
-    font-weight: normal;
-    background: linear-gradient(14deg, #e0ec8c 0%, #f5f78f 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin: 0;
-  }
-
-  p {
-    color: #4b5563;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -0.006em;
-    margin: 0;
-  }
-
-  code {
-    display: inline-block;
-    background:
-      linear-gradient(66.77deg, #eaf3cd 0%, #f5eace 100%) padding-box,
-      linear-gradient(155deg, #d8d833 0%, #e8ef7a 18%, #c1ed24 45%) border-box;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 6px 8px;
   }
 
   .box {
@@ -338,41 +153,23 @@ import Formulario from "../components/Formulario.astro";
     border: 1px solid white;
   }
 
-  #news {
-    position: absolute;
-    bottom: 16px;
-    right: 16px;
-    max-width: 300px;
-    text-decoration: none;
-    transition: background 0.2s;
-    backdrop-filter: blur(50px);
-  }
-
-  #news:hover {
-    background: rgba(255, 255, 255, 0.55);
-  }
-
-  /*----------------*/
+  /*--------Escritorio--------*/
   @media (min-width: 768px) {
     .arrow_container {
       margin: 20px 0px 150px 0px;
     }
-    h1 {
-      font-size: 8rem;
+    .title {
+      font-size: 7rem;
     }
-    main {
-      margin-top: 100px;
-    }
-    main p {
+    .subTitle {
       font-size: 1.4rem;
       margin-bottom: 30px;
     }
   }
 
+  /* Para mobil*/
   @media screen and (max-width: 768px) {
-    /* Para mobil    */
-
-    h1 {
+    .title {
       font-family: "AntonSC", sans-serif;
       font-weight: bolder;
       font-size: 3.3rem;
@@ -382,29 +179,14 @@ import Formulario from "../components/Formulario.astro";
       color: oklch(25.53% 0.0209 340.25);
       margin: 0px 20px;
     }
-    main p {
+    .subTitle {
       margin: 30px 0px 40px 0px;
       font-size: 0.8rem;
     }
 
-    .arrow_container {
-      display: none;
-    }
     #container {
       display: flex;
       flex-direction: column;
-    }
-
-    #hero {
-      display: block;
-      padding-top: 10%;
-    }
-
-    #news {
-      right: 16px;
-      left: 16px;
-      bottom: 2.5rem;
-      max-width: 100%;
     }
   }
 </style>
