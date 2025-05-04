@@ -36,26 +36,30 @@ import ArrowScroll from "./ArrowScroll.astro";
   let text = document.querySelector("#text");
   let split = SplitText.create(text, { type: "chars, words, lines" });
 
-  gsap.from(split.words, {
-    y: -200,
-    opacity: 0,
-    rotation: "random(-80, 80)",
-    duration: 0.7,
-    ease: "back",
-    stagger: 0.1,
-  });
+  gsap
+    .from(split.words, {
+      y: -200,
+      opacity: 0,
+      rotation: "random(-80, 80)",
+      duration: 0.7,
+      ease: "back",
+      stagger: 0.1,
+    })
+    .delay(0.8);
 
   /////////////////
   let subTitle = document.querySelector("#subTitle");
   let splitSubTitle = SplitText.create(subTitle, { type: "chars" });
 
-  gsap.from(splitSubTitle.chars, {
-    x: 40,
-    opacity: 0,
-    duration: 1,
-    ease: "power4",
-    stagger: 0.03,
-  });
+  gsap
+    .from(splitSubTitle.chars, {
+      x: 40,
+      opacity: 0,
+      duration: 1,
+      ease: "power4",
+      stagger: 0.03,
+    })
+    .delay(1);
 </script>
 
 <style>
@@ -98,8 +102,9 @@ import ArrowScroll from "./ArrowScroll.astro";
     filter: blur(100px);
   } */
   .subTitle {
-    color: #673ab7;
+    color: #6300cd79;
     font-family: "Chalet", sans-serif;
+    /* text-shadow: 0px 0px 10px rgb(255, 255, 255); */
   }
 
   #container {
@@ -169,6 +174,9 @@ import ArrowScroll from "./ArrowScroll.astro";
 
   /* Para mobil*/
   @media screen and (max-width: 768px) {
+    main {
+      padding-top: 50px;
+    }
     .title {
       font-family: "AntonSC", sans-serif;
       font-weight: bolder;
